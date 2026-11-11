@@ -1,0 +1,194 @@
+{
+  "products": [
+    {
+      "id": "zego",
+      "name": "Zego",
+      "brand": "NexWorld",
+      "subtitle": "Eau de Parfum",
+      "price": 4999,
+      "originalPrice": 6500,
+      "stock": 41,
+      "category": "Floral & Sensual",
+      "themeColor": "#F4D7DA",
+      "accentColor": "#FF6B5B",
+      "bgGradient": "from-[#FBF3F4] via-[#F4D7DA] to-[#F4EDE0]",
+      "badge": "Signature Collection",
+      "size": "100ml / 3.4 FL. OZ.",
+      "image": "/images/zego.png",
+      "bottleImage": "/images/zego-bottle.png",
+      "rating": 4.9,
+      "reviewsCount": 142,
+      "description": "An ode to luminous modern grace and alluring warmth. NexWorld Zego captivates from the first mist, encased in an exquisite soft pink glass flacon with a matching rounded sculpted cap.",
+      "notes": {
+        "top": "[Editable Top Notes — e.g. Pink Pepper, Bergamot, Italian Mandarin]",
+        "heart": "[Editable Heart Notes — e.g. Damask Rose, Peony, White Peach]",
+        "base": "[Editable Base Notes — e.g. Madagascar Vanilla, Cashmere Wood, White Musk]"
+      },
+      "details": [
+        "Hand-poured luxury concentrate",
+        "8-12 hours lasting sillage",
+        "Matching blush pink presentation casket",
+        "Cruelty-free & ethically sourced"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-11-11T11:42:49.225Z"
+    },
+    {
+      "id": "infinity",
+      "name": "NexWorld Infinity",
+      "brand": "NexWorld",
+      "subtitle": "Eau de Parfum",
+      "price": 5499,
+      "originalPrice": 7200,
+      "stock": 28,
+      "category": "Aquatic & Woody",
+      "themeColor": "#C7E6ED",
+      "accentColor": "#2A7B88",
+      "bgGradient": "from-[#EFF8FA] via-[#C7E6ED] to-[#F4EDE0]",
+      "badge": "Bestseller",
+      "size": "100ml / 3.4 FL. OZ.",
+      "image": "/images/infinity.png",
+      "bottleImage": "/images/infinity-bottle.png",
+      "rating": 5,
+      "reviewsCount": 198,
+      "description": "Boundless depth meets magnetic elegance. NexWorld Infinity evokes the boundless ocean horizon through a crystalline turquoise flacon crowned with a silver chrome monolithic cap.",
+      "notes": {
+        "top": "[Editable Top Notes — e.g. Sea Salt, Frosted Bergamot, Crisp Marine Accord]",
+        "heart": "[Editable Heart Notes — e.g. Blue Sage, Crushed Cedar Needle, Cardamom]",
+        "base": "[Editable Base Notes — e.g. Driftwood, Mineral Ambergris, Smoked Vetiver]"
+      },
+      "details": [
+        "Artisanal marine & woody harmony",
+        "10-14 hours commanding projection",
+        "Heavy crystal flacon with silver cap",
+        "Sustainably harvested botanical essences"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-11-11T11:42:49.226Z"
+    },
+    {
+      "id": "oud-alhind",
+      "name": "Oud Alhind",
+      "brand": "NexWorld",
+      "subtitle": "Extrait de Parfum",
+      "price": 6299,
+      "originalPrice": 8500,
+      "stock": 19,
+      "category": "Imperial Oriental Oud",
+      "themeColor": "#E8C2C8",
+      "accentColor": "#801B2A",
+      "bgGradient": "from-[#FAF0F2] via-[#E8C2C8] to-[#F4EDE0]",
+      "badge": "Prestige Reserve",
+      "size": "100ml / 3.4 FL. OZ.",
+      "image": "/images/oud-alhind.png",
+      "bottleImage": "/images/oud-bottle.png",
+      "rating": 4.95,
+      "reviewsCount": 265,
+      "description": "The sovereign soul of ancient Assam oud distilled into pure liquid gold. Crowned with an opulent gold cap, the deep ruby flacon radiates mystery, royalty, and unforgettable allure.",
+      "notes": {
+        "top": "[Editable Top Notes — e.g. Saffron Stigmas, Royal Incense, Taif Rose]",
+        "heart": "[Editable Heart Notes — e.g. Aged Assam Oud, Leather Accord, Nutmeg]",
+        "base": "[Editable Base Notes — e.g. Golden Amber, Royal Sandalwood, Dark Patchouli]"
+      },
+      "details": [
+        "Pure Extrait de Parfum concentration (30% oil)",
+        "16+ hours timeless regal sillage",
+        "Deep ruby glass with 24K gold-plated cap",
+        "Rare wild-harvested vintage oud wood"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-11-11T11:42:49.226Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord_1794397793124",
+      "orderNumber": "NW-2026-1320",
+      "customer": {
+        "name": "Dev Test Patron",
+        "email": "test@nexworld.com",
+        "phone": "+91 99999 88888",
+        "address": "10 Marine Drive",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400020"
+      },
+      "items": [
+        {
+          "productId": "zego",
+          "name": "Zego",
+          "price": 4999,
+          "quantity": 1,
+          "size": "100ml / 3.4 FL. OZ.",
+          "image": "/images/zego.png"
+        }
+      ],
+      "subtotal": 4999,
+      "total": 4999,
+      "paymentMethod": "Razorpay",
+      "orderStatus": "Processing",
+      "paymentStatus": "Paid",
+      "createdAt": "2026-11-11T11:49:53.124Z"
+    },
+    {
+      "id": "ord_1001",
+      "orderNumber": "NW-2026-9812",
+      "customer": {
+        "name": "Aarav Sharma",
+        "email": "aarav@example.com",
+        "phone": "+91 98765 43210",
+        "address": "42 Altamount Road, Cumballa Hill",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400026"
+      },
+      "items": [
+        {
+          "productId": "oud-alhind",
+          "name": "Oud Alhind",
+          "price": 6299,
+          "quantity": 1,
+          "size": "100ml / 3.4 FL. OZ.",
+          "image": "/images/oud-alhind.png"
+        }
+      ],
+      "subtotal": 6299,
+      "tax": 0,
+      "shipping": 0,
+      "total": 6299,
+      "paymentMethod": "Razorpay (UPI / NetBanking)",
+      "paymentStatus": "Paid",
+      "orderStatus": "Shipped",
+      "trackingNumber": "NW-TRK-7729104",
+      "createdAt": "2026-11-09T11:42:49.226Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "NexWorld Curator",
+      "email": "admin@nexworld.com",
+      "password": "adminpassword123",
+      "role": "admin",
+      "createdAt": "2026-11-11T11:42:49.226Z"
+    },
+    {
+      "id": "usr_1794397828250",
+      "name": "Lady Victoria",
+      "email": "victoria@nexworld.com",
+      "password": "secretpassword",
+      "role": "customer",
+      "createdAt": "2026-11-11T11:50:28.250Z"
+    }
+  ],
+  "subscribers": [
+    {
+      "email": "collector@luxuryfragrance.com",
+      "subscribedAt": "2026-11-11T11:42:49.226Z"
+    },
+    {
+      "email": "connoisseur@luxury.com",
+      "subscribedAt": "2026-11-11T11:50:01.935Z"
+    }
+  ]
+}

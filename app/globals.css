@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #14213D;
+  --color-cream: #F4EDE0;
+  --color-coral: #FF6B5B;
+  --color-gold: #C5A059;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #F4EDE0;
+  color: #14213D;
+}
+
+body {
+  background-color: #F4EDE0;
+  color: #14213D;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #14213D;
+  color: #F4EDE0;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4EDE0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #14213D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B5B;
+}
+
+/* Typography Helpers */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Glassmorphism Luxury Utilities */
+.glass-nav {
+  background: rgba(244, 237, 224, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(20, 33, 61, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+}
+
+.glass-card-dark {
+  background: rgba(20, 33, 61, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 237, 224, 0.12);
+}
+
+/* Glow & Shimmer Effects */
+.luxury-glow-coral {
+  box-shadow: 0 0 35px -5px rgba(255, 107, 91, 0.4);
+}
+
+.luxury-glow-gold {
+  box-shadow: 0 0 40px -5px rgba(197, 160, 89, 0.35);
+}
+
+.luxury-shadow-bottle {
+  filter: drop-shadow(0 25px 35px rgba(20, 33, 61, 0.22));
+}
+
+/* Button & Interactive styles */
+.btn-luxury-coral {
+  background-color: #FF6B5B;
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-coral:hover {
+  background-color: #e84d3c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(255, 107, 91, 0.4);
+}
+
+.btn-luxury-navy {
+  background-color: #14213D;
+  color: #F4EDE0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-navy:hover {
+  background-color: #0c1425;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(20, 33, 61, 0.3);
+}
+
+.btn-luxury-outline {
+  border: 1.5px solid #14213D;
+  color: #14213D;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-luxury-outline:hover {
+  background-color: #14213D;
+  color: #F4EDE0;
+}
