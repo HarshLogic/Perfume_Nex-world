@@ -114,7 +114,7 @@ export default function SearchModal({ products = [] }) {
                     {product.name}
                   </h4>
                   <p className="text-xs text-[#14213D]/60 truncate">
-                    {product.size} • ₹{Number(product.price).toLocaleString("en-IN")}
+                    {product.size} • AED {Number(product.price).toLocaleString()}
                   </p>
                 </div>
 

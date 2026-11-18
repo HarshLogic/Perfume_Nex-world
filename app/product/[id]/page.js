@@ -15,8 +15,7 @@ import {
   Droplets,
   Sparkles,
   Truck,
-  RotateCcw,
-  Award,
+  ArrowRight,
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
@@ -29,20 +28,26 @@ export default function ProductDetailPage() {
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   const [product, setProduct] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [qty, setQty] = useState(1);
-  const [activeTab, setActiveTab] = useState("notes"); // 'notes' | 'details' | 'reviews'
+  const [activeTab, setActiveTab] = useState("notes");
 
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    fetch(`/api/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.product) {
-          setProduct(data.product);
+    Promise.all([
+      fetch(`/api/products/${id}`).then((r) => r.json()),
+      fetch(`/api/products`).then((r) => r.json()),
+    ])
+      .then(([prodData, allData]) => {
+        if (prodData.product) {
+          setProduct(prodData.product);
         } else {
           router.push("/");
+        }
+        if (allData.products) {
+          setAllProducts(allData.products);
         }
       })
       .catch((err) => {
@@ -67,6 +72,7 @@ export default function ProductDetailPage() {
   if (!product) return null;
 
   const isFav = isInWishlist(product.id);
+  const relatedProducts = allProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
   return (
     <div className="pt-28 pb-20 bg-[#F4EDE0] min-h-screen">
@@ -78,7 +84,7 @@ export default function ProductDetailPage() {
           </Link>
           <span>/</span>
           <Link href="/#collection" className="hover:text-[#FF6B5B] transition-colors">
-            Fragrance Trilogy
+            Nexence Collection
           </Link>
           <span>/</span>
           <span className="text-[#14213D] font-semibold">{product.name}</span>
@@ -86,15 +92,15 @@ export default function ProductDetailPage() {
 
         {/* Main Product Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left: Large Flacon Photography */}
+          {/* Left: Large Product Photography (Authentic Bottle & Packaging) */}
           <div className="lg:col-span-6 flex flex-col items-center">
-            <div className="relative w-full aspect-square max-w-lg rounded-3xl bg-white/70 backdrop-blur-md border border-[#14213D]/10 p-8 shadow-xl flex items-center justify-center overflow-hidden">
+            <div className="relative w-full aspect-square max-w-lg rounded-3xl bg-[#14213D]/5 border border-[#14213D]/10 shadow-xl flex items-center justify-center overflow-hidden">
               <Image
-                src={product.bottleImage || product.image}
-                alt={product.name}
+                src={product.image || product.bottleImage}
+                alt={`${product.name} Authentic Bottle & Packaging`}
                 fill
                 priority
-                className="object-contain p-6 filter drop-shadow-[0_30px_45px_rgba(20,33,61,0.25)] transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
 
               {product.badge && (
@@ -106,24 +112,26 @@ export default function ProductDetailPage() {
               )}
             </div>
 
-            {/* Thumbnail Gallery */}
+            {/* Thumbnail Selection */}
             <div className="flex items-center gap-4 mt-6">
-              <div className="relative w-20 h-20 rounded-2xl bg-white/80 border-2 border-[#FF6B5B] p-2 flex items-center justify-center cursor-pointer shadow-sm">
-                <Image
-                  src={product.bottleImage || product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-1"
-                />
-              </div>
-              <div className="relative w-20 h-20 rounded-2xl bg-white/60 border border-[#14213D]/10 p-2 flex items-center justify-center cursor-pointer hover:border-[#14213D]/30 transition-colors">
+              <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/80 border-2 border-[#FF6B5B] flex items-center justify-center cursor-pointer shadow-sm">
                 <Image
                   src={product.image}
-                  alt={`${product.name} Scene`}
+                  alt={`${product.name} Packaging`}
                   fill
-                  className="object-contain p-1"
+                  className="object-cover"
                 />
               </div>
+              {product.bottleImage && (
+                <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white/60 border border-[#14213D]/10 p-1 flex items-center justify-center cursor-pointer hover:border-[#14213D]/30 transition-colors">
+                  <Image
+                    src={product.bottleImage}
+                    alt={`${product.name} Flacon`}
+                    fill
+                    className="object-contain p-1"
+                  />
+                </div>
+              )}
             </div>
           </div>
 
@@ -151,15 +159,15 @@ export default function ProductDetailPage() {
 
               <div className="flex items-baseline gap-4 my-4">
                 <span className="font-serif text-3xl sm:text-4xl font-bold text-[#14213D]">
-                  ₹{Number(product.price).toLocaleString("en-IN")}
+                  AED {Number(product.price).toLocaleString()}
                 </span>
                 {product.originalPrice && (
                   <span className="text-base text-[#14213D]/40 line-through">
-                    ₹{Number(product.originalPrice).toLocaleString("en-IN")}
+                    AED {Number(product.originalPrice).toLocaleString()}
                   </span>
                 )}
                 <span className="text-xs uppercase tracking-wider text-[#FF6B5B] font-semibold">
-                  Taxes Included • Free Insured Delivery
+                  Taxes Included • Complimentary Delivery
                 </span>
               </div>
             </div>
@@ -168,14 +176,14 @@ export default function ProductDetailPage() {
               {product.description}
             </p>
 
-            {/* Size Selector */}
+            {/* Volume & Concentration Badge */}
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#14213D]/60 block">
-                CONCENTRATION & FLACON SIZE
+                OFFICIAL VOLUME & CONCENTRATION
               </span>
               <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border-2 border-[#14213D] shadow-sm">
                 <span className="font-serif font-bold text-sm text-[#14213D]">
-                  {product.size || "100ml / 3.4 FL. OZ."}
+                  100 ml / 3.4 fl. oz.
                 </span>
                 <span className="text-[10px] text-[#14213D]/50 uppercase tracking-widest font-semibold ml-2">
                   (Official Flacon)
@@ -183,9 +191,8 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            {/* Stepper, Add to Bag & Wishlist Buttons */}
+            {/* Quantity Stepper & Add to Bag */}
             <div className="pt-4 border-t border-[#14213D]/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              {/* Stepper */}
               <div className="flex items-center justify-between border border-[#14213D]/20 rounded-full bg-white px-3 py-2">
                 <button
                   onClick={() => setQty(Math.max(1, qty - 1))}
@@ -206,7 +213,6 @@ export default function ProductDetailPage() {
                 </button>
               </div>
 
-              {/* Add to Bag CTA */}
               <button
                 onClick={() => addToCart(product, qty)}
                 className="btn-luxury-coral flex-1 py-4 rounded-full font-sans text-xs uppercase tracking-[0.24em] font-semibold flex items-center justify-center gap-2 shadow-xl"
@@ -215,7 +221,6 @@ export default function ProductDetailPage() {
                 <span>ADD TO SHOPPING BAG</span>
               </button>
 
-              {/* Wishlist Button */}
               <button
                 onClick={() => toggleWishlist(product)}
                 aria-label="Add to Wishlist"
@@ -233,15 +238,15 @@ export default function ProductDetailPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-[#14213D]/10 text-xs text-[#14213D]/70 font-sans">
               <div className="flex items-center gap-2">
                 <Truck size={16} className="text-[#FF6B5B] shrink-0" />
-                <span>Express Insured Courier</span>
+                <span>Complimentary Delivery</span>
               </div>
               <div className="flex items-center gap-2">
                 <Sparkles size={16} className="text-[#C5A059] shrink-0" />
-                <span>Velvet Presentation Box</span>
+                <span>Original Packaging Included</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield size={16} className="text-[#14213D] shrink-0" />
-                <span>100% Authentic Flacon</span>
+                <span>Official NE Monogram</span>
               </div>
             </div>
           </div>
@@ -253,9 +258,7 @@ export default function ProductDetailPage() {
             <button
               onClick={() => setActiveTab("notes")}
               className={`font-serif text-sm sm:text-base font-bold tracking-wider uppercase transition-all relative pb-2 ${
-                activeTab === "notes"
-                  ? "text-[#FF6B5B]"
-                  : "text-[#14213D]/60 hover:text-[#14213D]"
+                activeTab === "notes" ? "text-[#FF6B5B]" : "text-[#14213D]/60 hover:text-[#14213D]"
               }`}
             >
               Olfactory Pyramid (Editable Notes)
@@ -267,12 +270,10 @@ export default function ProductDetailPage() {
             <button
               onClick={() => setActiveTab("details")}
               className={`font-serif text-sm sm:text-base font-bold tracking-wider uppercase transition-all relative pb-2 ${
-                activeTab === "details"
-                  ? "text-[#FF6B5B]"
-                  : "text-[#14213D]/60 hover:text-[#14213D]"
+                activeTab === "details" ? "text-[#FF6B5B]" : "text-[#14213D]/60 hover:text-[#14213D]"
               }`}
             >
-              Craftsmanship & Sillage
+              Packaging & Craftsmanship
               {activeTab === "details" && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B5B]" />
               )}
@@ -281,12 +282,10 @@ export default function ProductDetailPage() {
             <button
               onClick={() => setActiveTab("reviews")}
               className={`font-serif text-sm sm:text-base font-bold tracking-wider uppercase transition-all relative pb-2 ${
-                activeTab === "reviews"
-                  ? "text-[#FF6B5B]"
-                  : "text-[#14213D]/60 hover:text-[#14213D]"
+                activeTab === "reviews" ? "text-[#FF6B5B]" : "text-[#14213D]/60 hover:text-[#14213D]"
               }`}
             >
-              Connoisseur Reviews ({product.reviewsCount || 120})
+              Customer Reviews ({product.reviewsCount || 120})
               {activeTab === "reviews" && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B5B]" />
               )}
@@ -309,7 +308,7 @@ export default function ProductDetailPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#14213D]/10">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF6B5B] block mb-2">
-                      TOP ACCORD
+                      TOP NOTES
                     </span>
                     <p className="font-serif text-sm text-[#14213D]/80 leading-relaxed">
                       {typeof product.notes === "object" ? product.notes.top : product.notes}
@@ -318,23 +317,23 @@ export default function ProductDetailPage() {
 
                   <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#14213D]/10">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF6B5B] block mb-2">
-                      HEART ACCORD
+                      HEART NOTES
                     </span>
                     <p className="font-serif text-sm text-[#14213D]/80 leading-relaxed">
                       {typeof product.notes === "object"
                         ? product.notes.heart
-                        : "Velvety floral & woody middle accords"}
+                        : "Harmonious middle accords"}
                     </p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#14213D]/10">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF6B5B] block mb-2">
-                      BASE ACCORD
+                      BASE NOTES
                     </span>
                     <p className="font-serif text-sm text-[#14213D]/80 leading-relaxed">
                       {typeof product.notes === "object"
                         ? product.notes.base
-                        : "Deep amber, musk & precious wood foundations"}
+                        : "Deep foundation accords"}
                     </p>
                   </div>
                 </div>
@@ -344,20 +343,22 @@ export default function ProductDetailPage() {
             {activeTab === "details" && (
               <div className="space-y-4 bg-white/70 p-8 rounded-3xl border border-[#14213D]/10 font-sans text-sm text-[#14213D]/80 leading-relaxed">
                 <p>
-                  Every NexWorld flacon is blown from heavy optical crystal and hand-inspected in our atelier. Caps are weighted and stamped with the iconic interlocking <strong>NE</strong> monogram.
+                  Every Nexence flacon is delivered with its official matching luxury packaging box and stamped with the iconic <strong>NE</strong> monogram.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                   <div className="p-4 rounded-xl bg-[#FAF7F2]">
                     <strong className="block font-serif text-[#14213D] mb-1">
-                      Longevity & Sillage
+                      Bottle & Cap Specifications
                     </strong>
-                    <span>10 to 14 hours of persistent projection, leaving an indelible trail.</span>
+                    <span>
+                      {product.details?.join(" • ") || "100 ml / 3.4 fl. oz. Eau de Parfum"}
+                    </span>
                   </div>
                   <div className="p-4 rounded-xl bg-[#FAF7F2]">
                     <strong className="block font-serif text-[#14213D] mb-1">
-                      Application Recommendation
+                      Maison Concierge Support
                     </strong>
-                    <span>Mist onto pulse points — nape of neck, wrists, and collarbone.</span>
+                    <span>Inquiries handled directly via info@nexence.in</span>
                   </div>
                 </div>
               </div>
@@ -379,31 +380,66 @@ export default function ProductDetailPage() {
                     </div>
                   </div>
                   <p className="text-xs text-[#14213D]/70 italic font-serif">
-                    "The projection on this flacon is exceptional. Received countless compliments on first wear. NexWorld has created something timeless."
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#14213D]/5 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-serif font-bold text-sm text-[#14213D]">
-                      Natasha M.
-                    </span>
-                    <div className="flex text-[#C5A059]">
-                      <Star size={13} fill="currentColor" />
-                      <Star size={13} fill="currentColor" />
-                      <Star size={13} fill="currentColor" />
-                      <Star size={13} fill="currentColor" />
-                      <Star size={13} fill="currentColor" />
-                    </div>
-                  </div>
-                  <p className="text-xs text-[#14213D]/70 italic font-serif">
-                    "The bottle packaging alone feels like pure museum art. The fragrance evolves so beautifully throughout the day."
+                    "The projection on this flacon is exceptional. The original packaging box and bottle finish are pure luxury."
                   </p>
                 </div>
               </div>
             )}
           </div>
         </div>
+
+        {/* Related Products Section */}
+        {relatedProducts.length > 0 && (
+          <div className="mt-20 pt-10 border-t border-[#14213D]/10">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <span className="text-[10px] uppercase tracking-wider text-[#FF6B5B] font-bold block mb-1">
+                  DISCOVER MORE
+                </span>
+                <h3 className="font-serif text-2xl font-bold uppercase tracking-wider text-[#14213D]">
+                  COMPLEMENTARY CREATIONS
+                </h3>
+              </div>
+              <Link
+                href="/#collection"
+                className="text-xs uppercase tracking-wider font-semibold text-[#FF6B5B] flex items-center gap-1 hover:underline"
+              >
+                <span>View All Six</span>
+                <ArrowRight size={13} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProducts.map((rel) => (
+                <Link
+                  key={rel.id}
+                  href={`/product/${rel.id}`}
+                  className="group p-6 rounded-3xl bg-white/80 border border-[#14213D]/10 hover:shadow-xl transition-all flex flex-col justify-between"
+                >
+                  <div className="relative aspect-[4/5] w-full rounded-2xl bg-[#FAF7F2] p-4 flex items-center justify-center overflow-hidden mb-4">
+                    <Image
+                      src={rel.image || rel.bottleImage}
+                      alt={rel.name}
+                      fill
+                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-[#FF6B5B]">
+                      100 ml / 3.4 fl. oz.
+                    </span>
+                    <h4 className="font-serif text-lg font-bold text-[#14213D] group-hover:text-[#FF6B5B] transition-colors mt-0.5">
+                      {rel.name}
+                    </h4>
+                    <span className="font-serif font-bold text-sm text-[#14213D] block mt-1">
+                      AED {Number(rel.price).toLocaleString()}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ export default function OrdersListPage() {
               type="text"
               value={searchNum}
               onChange={(e) => setSearchNum(e.target.value)}
-              placeholder="Search by order number (e.g. NW-2026-9812)..."
+              placeholder="Search by order number (e.g. NX-2026-9812)..."
               className="w-full pl-11 pr-4 py-3 rounded-full bg-white border border-[#14213D]/15 text-xs text-[#14213D] focus:outline-none focus:border-[#FF6B5B]"
             />
           </div>
@@ -78,7 +78,7 @@ export default function OrdersListPage() {
               href="/#collection"
               className="btn-luxury-coral inline-block px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider"
             >
-              EXPLORE TRILOGY
+              EXPLORE COLLECTION
             </Link>
           </div>
         ) : (
@@ -116,7 +116,7 @@ export default function OrdersListPage() {
                       TOTAL PAID
                     </span>
                     <span className="font-serif font-bold text-lg text-[#14213D]">
-                      ₹{order.total?.toLocaleString("en-IN")}
+                      AED {order.total?.toLocaleString()}
                     </span>
                   </div>
 

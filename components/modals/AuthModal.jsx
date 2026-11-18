@@ -37,7 +37,7 @@ export default function AuthModal() {
 
   const handleFillDemo = (type) => {
     if (type === "admin") {
-      setEmail("admin@nexworld.com");
+      setEmail("admin@nexence.in");
       setPassword("adminpassword123");
       setMode("login");
     } else {

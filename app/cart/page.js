@@ -14,7 +14,7 @@ export default function CartPage() {
 
   const handleApplyCoupon = (e) => {
     e.preventDefault();
-    if (coupon.toUpperCase() === "NEXWORLD10") {
+    if (coupon.toUpperCase() === "NEXENCE10" || coupon.toUpperCase() === "NEXWORLD10") {
       const disc = Math.round(subtotal * 0.1);
       setDiscount(disc);
       setCouponMessage("Privilege code applied: 10% Maison discount");
@@ -37,13 +37,13 @@ export default function CartPage() {
             YOUR BAG IS EMPTY
           </h1>
           <p className="font-sans text-sm text-[#14213D]/70 mb-8 leading-relaxed">
-            The fragrance trilogy awaits your discovery. Select your signature flacon to begin your olfactory journey.
+            The fragrance collection awaits your discovery. Select your signature flacon to begin your olfactory journey.
           </p>
           <Link
             href="/#collection"
             className="btn-luxury-coral inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-[0.24em] shadow-lg"
           >
-            <span>DISCOVER THE TRILOGY</span>
+            <span>DISCOVER COLLECTION</span>
             <ArrowRight size={15} />
           </Link>
         </div>
@@ -91,7 +91,7 @@ export default function CartPage() {
                     Flacon Size: {item.size}
                   </p>
                   <p className="font-serif font-bold text-base text-[#14213D] pt-1">
-                    ₹{item.price.toLocaleString("en-IN")}
+                    AED {item.price.toLocaleString()}
                   </p>
                 </div>
 
@@ -119,7 +119,7 @@ export default function CartPage() {
 
                   <div className="text-right min-w-[90px]">
                     <span className="font-serif font-bold text-lg text-[#14213D] block">
-                      ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+                      AED {(item.price * item.quantity).toLocaleString()}
                     </span>
                   </div>
 
@@ -154,14 +154,14 @@ export default function CartPage() {
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="font-serif font-bold text-[#14213D]">
-                    ₹{subtotal.toLocaleString("en-IN")}
+                    AED {subtotal.toLocaleString()}
                   </span>
                 </div>
 
                 {discount > 0 && (
                   <div className="flex justify-between text-[#FF6B5B]">
                     <span>Privilege Discount</span>
-                    <span className="font-serif font-bold">-₹{discount.toLocaleString("en-IN")}</span>
+                    <span className="font-serif font-bold">-AED {discount.toLocaleString()}</span>
                   </div>
                 )}
 
@@ -184,7 +184,7 @@ export default function CartPage() {
                     Grand Total
                   </span>
                   <span className="font-serif font-bold text-2xl text-[#14213D]">
-                    ₹{finalTotal.toLocaleString("en-IN")}
+                    AED {finalTotal.toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function CartPage() {
                     type="text"
                     value={coupon}
                     onChange={(e) => setCoupon(e.target.value)}
-                    placeholder="Privilege Code (NEXWORLD10)"
+                    placeholder="Privilege Code (e.g. NEXENCE10)"
                     className="flex-1 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#14213D]/15 text-xs text-[#14213D] uppercase tracking-wider focus:outline-none focus:border-[#FF6B5B]"
                   />
                   <button

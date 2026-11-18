@@ -85,11 +85,11 @@ export default function QuickViewModal({ product, isOpen, onClose }) {
               {/* Price */}
               <div className="flex items-baseline gap-3 my-3">
                 <span className="font-serif text-2xl font-bold text-[#14213D]">
-                  ₹{Number(product.price).toLocaleString("en-IN")}
+                  AED {Number(product.price).toLocaleString()}
                 </span>
                 {product.originalPrice && (
                   <span className="text-sm text-[#14213D]/40 line-through">
-                    ₹{Number(product.originalPrice).toLocaleString("en-IN")}
+                    AED {Number(product.originalPrice).toLocaleString()}
                   </span>
                 )}
                 <span className="text-xs text-[#FF6B5B] font-semibold">

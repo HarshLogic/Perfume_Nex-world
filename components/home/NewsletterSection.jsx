@@ -6,7 +6,7 @@ import NeLogo from "@/components/brand/NeLogo";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ export default function NewsletterSection() {
       const data = await res.json();
       if (res.ok) {
         setStatus("success");
-        setMessage(data.message || "Welcome to the exclusive world of NexWorld.");
+        setMessage(data.message || "Welcome to the exclusive world of Nexence.");
         setEmail("");
       } else {
         setStatus("error");
@@ -58,11 +58,11 @@ export default function NewsletterSection() {
         </div>
 
         <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.08em] uppercase leading-tight mb-4">
-          ENTER THE WORLD OF NEXWORLD.
+          ENTER THE WORLD OF NEXENCE.
         </h2>
 
         <p className="font-sans text-sm sm:text-base text-[#F4EDE0]/75 max-w-xl mx-auto leading-relaxed mb-8">
-          Be the first to discover new fragrances, bespoke masterclasses, and private preview collections.
+          Be the first to discover new fragrance formulations, private salon invites, and exclusive preview batches.
         </p>
 
         {/* Subscription Form */}
@@ -103,7 +103,7 @@ export default function NewsletterSection() {
           )}
 
           <p className="text-[10px] uppercase tracking-wider text-[#F4EDE0]/40 mt-4">
-            We honor discretion. Unsubscribe at any time with a single click.
+            We honor client discretion. Unsubscribe at any time with a single click.
           </p>
         </form>
       </div>

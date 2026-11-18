@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingBag, Eye, Star, Sparkles } from "lucide-react";
+import { Heart, ShoppingBag, Eye, Star } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 
@@ -19,12 +19,12 @@ export default function ProductCard({ product, onQuickView }) {
       onMouseLeave={() => setIsHovered(false)}
       className="group relative flex flex-col rounded-3xl bg-white/70 backdrop-blur-md border border-[#14213D]/10 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
     >
-      {/* Top Media Container */}
-      <div className="relative aspect-[4/5] w-full bg-gradient-to-b from-[#FAF7F2] to-[#F4EDE0]/50 p-6 flex items-center justify-center overflow-hidden">
+      {/* Top Media Container: Shows Studio Packaging & Bottle */}
+      <div className="relative aspect-square w-full bg-[#14213D]/5 flex items-center justify-center overflow-hidden">
         {/* Badge */}
         {product.badge && (
           <div className="absolute top-4 left-4 z-20">
-            <span className="font-sans text-[10px] uppercase tracking-[0.2em] font-bold px-3 py-1 rounded-full bg-white/90 text-[#14213D] border border-[#14213D]/10 shadow-sm backdrop-blur-sm">
+            <span className="font-sans text-[10px] uppercase tracking-[0.2em] font-bold px-3 py-1 rounded-full bg-white/95 text-[#14213D] border border-[#14213D]/10 shadow-sm backdrop-blur-sm">
               {product.badge}
             </span>
           </div>
@@ -46,21 +46,21 @@ export default function ProductCard({ product, onQuickView }) {
           <Heart size={16} fill={isFav ? "currentColor" : "none"} />
         </button>
 
-        {/* Product Image with Hover Flip / Scale */}
+        {/* Product Image Link */}
         <Link
           href={`/product/${product.id}`}
           className="relative w-full h-full flex items-center justify-center"
         >
           <Image
-            src={product.bottleImage || product.image}
-            alt={product.name}
+            src={product.image || product.bottleImage}
+            alt={`${product.name} Authentic Perfume Flacon`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-            className="object-contain transition-transform duration-700 ease-out group-hover:scale-110 filter drop-shadow-[0_15px_25px_rgba(20,33,61,0.15)]"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </Link>
 
-        {/* Quick Action Overlay (Desktop) */}
+        {/* Quick Action Overlay on Hover */}
         <div
           className={`absolute inset-x-4 bottom-4 z-20 flex items-center justify-center gap-2 transition-all duration-300 ${
             isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
@@ -79,20 +79,14 @@ export default function ProductCard({ product, onQuickView }) {
       {/* Product Details Block */}
       <div className="p-6 flex flex-col flex-1 justify-between bg-white/40">
         <div>
-          {/* Subtitle & Rating */}
+          {/* Subtitle & Volume */}
           <div className="flex items-center justify-between text-xs text-[#14213D]/60 mb-1.5">
-            <span className="uppercase tracking-[0.22em] font-semibold text-[10px]">
+            <span className="uppercase tracking-[0.22em] font-semibold text-[10px] text-[#FF6B5B]">
               {product.subtitle || "Eau de Parfum"}
             </span>
-            <div className="flex items-center gap-1 text-[#C5A059]">
-              <Star size={12} fill="currentColor" />
-              <span className="font-semibold text-xs text-[#14213D]">
-                {product.rating || "4.9"}
-              </span>
-              <span className="text-[10px] text-[#14213D]/40">
-                ({product.reviewsCount || 120})
-              </span>
-            </div>
+            <span className="text-[11px] font-semibold text-[#14213D]/60">
+              100 ml / 3.4 fl. oz.
+            </span>
           </div>
 
           {/* Product Name */}
@@ -112,26 +106,34 @@ export default function ProductCard({ product, onQuickView }) {
           </p>
         </div>
 
-        {/* Pricing & Add to Cart Action */}
+        {/* Pricing, View Details & Add to Cart Action */}
         <div className="pt-4 mt-4 border-t border-[#14213D]/5 flex items-center justify-between">
           <div>
             <span className="font-serif font-bold text-lg text-[#14213D]">
-              ₹{Number(product.price).toLocaleString("en-IN")}
+              AED {Number(product.price).toLocaleString()}
             </span>
             {product.originalPrice && (
               <span className="text-xs text-[#14213D]/40 line-through ml-2">
-                ₹{Number(product.originalPrice).toLocaleString("en-IN")}
+                AED {Number(product.originalPrice).toLocaleString()}
               </span>
             )}
           </div>
 
-          <button
-            onClick={() => addToCart(product, 1)}
-            aria-label={`Add ${product.name} to cart`}
-            className="w-10 h-10 rounded-full bg-[#FF6B5B] hover:bg-[#e84d3c] text-white flex items-center justify-center transition-all shadow-sm hover:scale-105"
-          >
-            <ShoppingBag size={16} />
-          </button>
+          <div className="flex items-center gap-2">
+            <Link
+              href={`/product/${product.id}`}
+              className="text-[11px] font-semibold uppercase tracking-wider text-[#14213D] hover:text-[#FF6B5B] underline"
+            >
+              Details
+            </Link>
+            <button
+              onClick={() => addToCart(product, 1)}
+              aria-label={`Add ${product.name} to cart`}
+              className="w-10 h-10 rounded-full bg-[#FF6B5B] hover:bg-[#e84d3c] text-white flex items-center justify-center transition-all shadow-sm hover:scale-105"
+            >
+              <ShoppingBag size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </div>

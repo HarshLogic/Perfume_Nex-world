@@ -138,7 +138,7 @@ export default function CartDrawer() {
                       </div>
 
                       <span className="font-serif font-bold text-sm text-[#14213D]">
-                        ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+                        AED {(item.price * item.quantity).toLocaleString()}
                       </span>
                     </div>
                   </div>
@@ -154,7 +154,7 @@ export default function CartDrawer() {
                 <div className="flex justify-between text-[#14213D]/70">
                   <span>Subtotal</span>
                   <span className="font-serif font-bold text-[#14213D]">
-                    ₹{subtotal.toLocaleString("en-IN")}
+                    AED {subtotal.toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between text-[#14213D]/70">
@@ -168,7 +168,7 @@ export default function CartDrawer() {
                     Estimated Total
                   </span>
                   <span className="font-serif font-bold text-xl text-[#14213D]">
-                    ₹{subtotal.toLocaleString("en-IN")}
+                    AED {subtotal.toLocaleString()}
                   </span>
                 </div>
               </div>

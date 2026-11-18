@@ -8,17 +8,17 @@ export default function FeaturedGrid({ products = [], onQuickView }) {
   const [activeTab, setActiveTab] = useState("all");
 
   const tabs = [
-    { id: "all", label: "The Trilogy" },
-    { id: "floral", label: "Floral & Sensual" },
-    { id: "aquatic", label: "Aquatic & Fresh" },
-    { id: "oud", label: "Imperial Oud" },
+    { id: "all", label: "All Six Creations (6)" },
+    { id: "floral", label: "Floral & Amethyst" },
+    { id: "oud", label: "Prestige Oud & Woods" },
+    { id: "fresh", label: "Aquatic & Midnight" },
   ];
 
   const filteredProducts = products.filter((p) => {
     if (activeTab === "all") return true;
-    if (activeTab === "floral") return p.category?.toLowerCase().includes("floral") || p.id === "zego";
-    if (activeTab === "aquatic") return p.category?.toLowerCase().includes("aquatic") || p.id === "infinity";
-    if (activeTab === "oud") return p.category?.toLowerCase().includes("oud") || p.id === "oud-alhind";
+    if (activeTab === "floral") return p.id === "zoya" || p.id === "nexdesire";
+    if (activeTab === "oud") return p.id === "oud-alashhar" || p.id === "oud-alhind";
+    if (activeTab === "fresh") return p.id === "infinity" || p.id === "nexaura";
     return true;
   });
 
@@ -31,15 +31,15 @@ export default function FeaturedGrid({ products = [], onQuickView }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#14213D]/5 border border-[#14213D]/10 mb-4">
               <Sparkles size={12} className="text-[#FF6B5B]" />
               <span className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-[#14213D]/80">
-                CURATED SHOWCASE
+                NEXENCE PORTFOLIO
               </span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.08em] text-[#14213D] uppercase">
-              FEATURED COLLECTION
+              THE COMPLETE COLLECTION
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-[#14213D]/70 max-w-lg mt-2">
-              Explore the official NexWorld portfolio. Handcrafted luxury extractions designed for unforgettable presence.
+            <p className="font-sans text-xs sm:text-sm text-[#14213D]/70 max-w-lg mt-2 leading-relaxed">
+              Experience the six official Nexence fragrances. Crafted from exceptional global ingredients and bottled in 100 ml / 3.4 fl. oz. luxury crystal flacons.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function FeaturedGrid({ products = [], onQuickView }) {
           </div>
         </div>
 
-        {/* Product Cards Grid */}
+        {/* Product Cards Grid: 6 Products */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {filteredProducts.map((product) => (
             <ProductCard

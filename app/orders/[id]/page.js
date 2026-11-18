@@ -101,7 +101,7 @@ export default function OrderTrackingPage() {
             THANK YOU FOR YOUR PATRONAGE
           </h1>
           <p className="font-sans text-xs sm:text-sm text-[#14213D]/70 max-w-lg mx-auto mt-2">
-            Order <strong className="text-[#14213D] font-mono">{order.orderNumber}</strong> has been registered in the NexWorld private archive.
+            Order <strong className="text-[#14213D] font-mono">{order.orderNumber}</strong> has been registered in the Nexence private archive.
           </p>
         </div>
 
@@ -188,7 +188,7 @@ export default function OrderTrackingPage() {
               >
                 <div className="relative w-16 h-20 rounded-xl bg-white p-2 shrink-0 flex items-center justify-center">
                   <Image
-                    src={item.image || "/images/zego.png"}
+                    src={item.image || "/images/studio/zoya.jpg"}
                     alt={item.name}
                     fill
                     className="object-contain"
@@ -203,7 +203,7 @@ export default function OrderTrackingPage() {
                   </p>
                 </div>
                 <span className="font-serif font-bold text-sm text-[#14213D]">
-                  ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+                  AED {(item.price * item.quantity).toLocaleString()}
                 </span>
               </div>
             ))}
@@ -245,7 +245,7 @@ export default function OrderTrackingPage() {
             <div className="flex justify-between">
               <span>Subtotal</span>
               <span className="font-serif font-bold text-[#14213D]">
-                ₹{order.subtotal?.toLocaleString("en-IN")}
+                AED {order.subtotal?.toLocaleString()}
               </span>
             </div>
             <div className="flex justify-between">
@@ -258,7 +258,7 @@ export default function OrderTrackingPage() {
             </div>
             <div className="flex justify-between text-base font-bold text-[#14213D] pt-2 border-t border-[#14213D]/5">
               <span>Grand Total Paid</span>
-              <span className="font-serif text-xl">₹{order.total?.toLocaleString("en-IN")}</span>
+              <span className="font-serif text-xl">AED {order.total?.toLocaleString()}</span>
             </div>
           </div>
         </div>

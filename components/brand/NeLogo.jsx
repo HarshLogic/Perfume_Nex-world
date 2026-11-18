@@ -7,7 +7,7 @@ export default function NeLogo({
   subtitle = "PARFUMS",
   className = "",
 }) {
-  // Color presets
+  // Official Brand Palette
   const colors = {
     navy: {
       primary: "#14213D",
@@ -45,7 +45,7 @@ export default function NeLogo({
 
   return (
     <div className={`inline-flex items-center gap-3 select-none ${className}`}>
-      {/* Interlocking NE Monogram Crest */}
+      {/* Official Interlocking NE Monogram Crest as seen on product packaging */}
       <div
         className="relative flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-105"
         style={{ width: s.icon, height: s.icon }}
@@ -78,7 +78,6 @@ export default function NeLogo({
             strokeOpacity="0.6"
           />
 
-          {/* Interlocking 'N' and 'E' Luxury Monogram */}
           {/* Letter N: Left vertical bar, Diagonal, Right vertical bar */}
           <path
             d="M26 26V74"
@@ -99,22 +98,19 @@ export default function NeLogo({
             strokeLinecap="round"
           />
 
-          {/* Letter E: Interlaced with right stem of N, with horizontal luxury arms */}
-          {/* E Top arm */}
+          {/* Letter E: Interlaced with right stem of N */}
           <path
             d="M54 32H75"
             stroke={current.primary}
             strokeWidth="4"
             strokeLinecap="round"
           />
-          {/* E Center arm with Coral accent */}
           <path
             d="M54 50H70"
             stroke={current.accent}
             strokeWidth="3.8"
             strokeLinecap="round"
           />
-          {/* E Bottom arm */}
           <path
             d="M54 68H75"
             stroke={current.primary}
@@ -123,38 +119,10 @@ export default function NeLogo({
           />
 
           {/* Luxury Serif Accents */}
-          <line
-            x1="22"
-            y1="26"
-            x2="30"
-            y2="26"
-            stroke={current.gold}
-            strokeWidth="2"
-          />
-          <line
-            x1="22"
-            y1="74"
-            x2="30"
-            y2="74"
-            stroke={current.gold}
-            strokeWidth="2"
-          />
-          <line
-            x1="75"
-            y1="29"
-            x2="75"
-            y2="35"
-            stroke={current.gold}
-            strokeWidth="2"
-          />
-          <line
-            x1="75"
-            y1="65"
-            x2="75"
-            y2="71"
-            stroke={current.gold}
-            strokeWidth="2"
-          />
+          <line x1="22" y1="26" x2="30" y2="26" stroke={current.gold} strokeWidth="2" />
+          <line x1="22" y1="74" x2="30" y2="74" stroke={current.gold} strokeWidth="2" />
+          <line x1="75" y1="29" x2="75" y2="35" stroke={current.gold} strokeWidth="2" />
+          <line x1="75" y1="65" x2="75" y2="71" stroke={current.gold} strokeWidth="2" />
         </svg>
       </div>
 
@@ -164,7 +132,7 @@ export default function NeLogo({
             className={`font-serif font-bold tracking-[0.28em] uppercase ${s.text}`}
             style={{ color: current.text }}
           >
-            NEXWORLD
+            NEXENCE
           </span>
           {subtitle && (
             <span

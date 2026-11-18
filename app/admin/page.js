@@ -40,7 +40,7 @@ export default function AdminDashboardPage() {
     stock: "25",
     category: "Signature Luxury",
     size: "100ml / 3.4 FL. OZ.",
-    image: "/images/zego.png",
+    image: "/images/studio/zoya.jpg",
     description: "",
     notesTop: "[Editable Top Notes]",
     notesHeart: "[Editable Heart Notes]",
@@ -86,7 +86,7 @@ export default function AdminDashboardPage() {
       stock: prod.stock || 0,
       category: prod.category || "Signature Luxury",
       size: prod.size || "100ml / 3.4 FL. OZ.",
-      image: prod.image || "/images/zego.png",
+      image: prod.image || "/images/studio/zoya.jpg",
       description: prod.description || "",
       notesTop: typeof prod.notes === "object" ? prod.notes.top : prod.notes,
       notesHeart: typeof prod.notes === "object" ? prod.notes.heart : "",
@@ -106,7 +106,7 @@ export default function AdminDashboardPage() {
       stock: "30",
       category: "Signature Luxury",
       size: "100ml / 3.4 FL. OZ.",
-      image: "/images/zego.png",
+      image: "/images/studio/zoya.jpg",
       description: "",
       notesTop: "[Editable Top Notes]",
       notesHeart: "[Editable Heart Notes]",
@@ -278,7 +278,7 @@ export default function AdminDashboardPage() {
                   GROSS REVENUE
                 </span>
                 <h3 className="font-serif text-3xl font-bold text-[#14213D]">
-                  ₹{totalRevenue.toLocaleString("en-IN")}
+                  AED {totalRevenue.toLocaleString()}
                 </h3>
                 <span className="text-xs text-emerald-600 font-medium block">
                   ↑ 100% Real-time Transactions
@@ -360,7 +360,7 @@ export default function AdminDashboardPage() {
                           {o.items?.map((i) => i.name).join(", ")}
                         </td>
                         <td className="py-3 font-serif font-bold text-[#14213D]">
-                          ₹{o.total?.toLocaleString("en-IN")}
+                          AED {o.total?.toLocaleString()}
                         </td>
                         <td className="py-3">
                           <span className="px-2.5 py-0.5 rounded-full bg-[#FF6B5B]/10 text-[#FF6B5B] font-bold text-[10px] uppercase">
@@ -427,7 +427,7 @@ export default function AdminDashboardPage() {
                       </td>
                       <td className="py-3 text-[#14213D]/70">{p.category}</td>
                       <td className="py-3 font-serif font-bold text-sm text-[#14213D]">
-                        ₹{Number(p.price).toLocaleString("en-IN")}
+                        AED {Number(p.price).toLocaleString()}
                       </td>
                       <td className="py-3">
                         <span
@@ -525,7 +525,7 @@ export default function AdminDashboardPage() {
                         {ord.items?.map((i) => `${i.name} (Qty ${i.quantity})`).join(", ")}
                       </p>
                       <p className="font-serif font-bold text-base text-[#14213D] mt-2">
-                        Total: ₹{ord.total?.toLocaleString("en-IN")}
+                        Total: AED {ord.total?.toLocaleString()}
                       </p>
                       <span className="text-[10px] text-emerald-600 font-bold uppercase">
                         Payment: {ord.paymentMethod} (Cleared)
@@ -565,7 +565,7 @@ export default function AdminDashboardPage() {
                         {prod.name}
                       </h4>
                       <span className="text-[10px] uppercase tracking-wider text-[#FF6B5B] font-bold">
-                        ₹{Number(prod.price).toLocaleString("en-IN")}
+                        AED {Number(prod.price).toLocaleString()}
                       </span>
                     </div>
                   </div>
@@ -653,7 +653,7 @@ export default function AdminDashboardPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-[10px] uppercase font-bold tracking-wider text-[#14213D]/70 mb-1">
-                    Price (INR ₹) *
+                    Price (AED) *
                   </label>
                   <input
                     type="number"
@@ -666,7 +666,7 @@ export default function AdminDashboardPage() {
 
                 <div>
                   <label className="block text-[10px] uppercase font-bold tracking-wider text-[#14213D]/70 mb-1">
-                    Original / MRP Price (₹)
+                    Original / MRP Price (AED)
                   </label>
                   <input
                     type="number"
@@ -700,7 +700,7 @@ export default function AdminDashboardPage() {
                   type="text"
                   value={productForm.image}
                   onChange={(e) => setProductForm({ ...productForm, image: e.target.value })}
-                  placeholder="/images/zego.png"
+                  placeholder="/images/studio/zoya.jpg"
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#14213D]/15 text-[#14213D] focus:outline-none focus:border-[#FF6B5B]"
                 />
               </div>

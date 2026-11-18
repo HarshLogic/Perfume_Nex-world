@@ -12,13 +12,13 @@ export default function PrivacyPage() {
             PRIVACY POLICY & CLIENT DISCRETION
           </h1>
           <p className="text-xs text-[#14213D]/60 mt-1">
-            Effective Date: November 2026 • NexWorld Parfums Inc.
+            Effective Date: November 2026 • Nexence Parfums Inc.
           </p>
         </div>
 
         <div className="space-y-4 text-xs sm:text-sm text-[#14213D]/80 leading-relaxed font-sans">
           <p>
-            At NexWorld, discretion is as essential to our identity as our master olfactory formulations. We respect your personal privacy and treat your acquisition data with the utmost confidentiality.
+            At Nexence, discretion is as essential to our identity as our master olfactory formulations. We respect your personal privacy and treat your acquisition data with the utmost confidentiality.
           </p>
           <h3 className="font-serif font-bold text-base text-[#14213D] pt-2">
             1. Information We Collect
@@ -30,15 +30,15 @@ export default function PrivacyPage() {
             2. Payment Security
           </h3>
           <p>
-            All financial transactions are processed through 256-bit encrypted Razorpay gateways. NexWorld never stores raw payment card numbers or banking credentials.
+            All financial transactions are processed through 256-bit encrypted Razorpay gateways. Nexence never stores raw payment card numbers or banking credentials.
           </p>
           <h3 className="font-serif font-bold text-base text-[#14213D] pt-2">
             3. Client Inquiries
           </h3>
           <p>
-            For privacy concierge requests or ledger deletions, contact us directly at{" "}
-            <a href="mailto:concierge@nexworldperfumes.com" className="text-[#FF6B5B] underline">
-              concierge@nexworldperfumes.com
+            For privacy inquiries, concierge assistance, or ledger modifications, please contact our official team directly at{" "}
+            <a href="mailto:info@nexence.in" className="text-[#FF6B5B] underline">
+              info@nexence.in
             </a>.
           </p>
         </div>

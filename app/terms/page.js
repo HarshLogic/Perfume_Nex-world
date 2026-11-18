@@ -12,19 +12,19 @@ export default function TermsPage() {
             TERMS & CONDITIONS OF SALE
           </h1>
           <p className="text-xs text-[#14213D]/60 mt-1">
-            NexWorld Luxury Perfumes • Maison Guidelines
+            Nexence Luxury Perfumes • Maison Guidelines
           </p>
         </div>
 
         <div className="space-y-4 text-xs sm:text-sm text-[#14213D]/80 leading-relaxed font-sans">
           <p>
-            Welcome to the official online boutique of NexWorld. By acquiring any flacon from our collections, you agree to the conditions set forth herein.
+            Welcome to the official online boutique of Nexence. By acquiring any flacon from our collections, you agree to the conditions set forth herein.
           </p>
           <h3 className="font-serif font-bold text-base text-[#14213D] pt-2">
             1. Authenticity Guarantee
           </h3>
           <p>
-            All fragrances sold directly through NexWorld are 100% authentic, hand-inspected, and delivered in official sealed packaging with the interlocking NE monogram.
+            All fragrances sold directly through Nexence are 100% authentic, hand-inspected, and delivered in official sealed packaging with the interlocking NE monogram.
           </p>
           <h3 className="font-serif font-bold text-base text-[#14213D] pt-2">
             2. Shipping & Delivery
@@ -36,7 +36,10 @@ export default function TermsPage() {
             3. Returns & Replacements
           </h3>
           <p>
-            Due to the delicate nature of high-concentration extraits and personal hygiene standards, flacons may only be returned if received damaged or defective in transit, reported within 7 days of delivery.
+            Due to the delicate nature of high-concentration extraits and personal hygiene standards, flacons may only be returned if received damaged or defective in transit, reported within 7 days of delivery to{" "}
+            <a href="mailto:info@nexence.in" className="text-[#FF6B5B] underline">
+              info@nexence.in
+            </a>.
           </p>
         </div>
 

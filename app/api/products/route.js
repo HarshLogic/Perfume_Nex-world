@@ -55,8 +55,8 @@ export async function POST(request) {
       ...body,
       price: Number(body.price),
       stock: Number(body.stock || 25),
-      image: body.image || "/images/zego.png",
-      bottleImage: body.bottleImage || body.image || "/images/zego.png",
+      image: body.image || "/images/studio/zoya.jpg",
+      bottleImage: body.bottleImage || body.image || "/images/studio/zoya.jpg",
       rating: 5.0,
       reviewsCount: 1,
     });

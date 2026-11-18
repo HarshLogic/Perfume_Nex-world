@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { amount, currency = "INR", receipt } = await request.json();
+    const { amount, currency = "AED", receipt } = await request.json();
 
     const keyId = process.env.RAZORPAY_KEY_ID;
     const keySecret = process.env.RAZORPAY_KEY_SECRET;
@@ -43,7 +43,7 @@ export async function POST(request) {
     return NextResponse.json({
       success: true,
       orderId: mockOrderId,
-      currency: "INR",
+      currency: "AED",
       amount: Math.round(amount * 100),
       keyId: keyId || "rzp_test_nexworld_mock",
       isMock: true,

@@ -62,7 +62,7 @@ export default function CheckoutPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount: subtotal,
-          currency: "INR",
+          currency: "AED",
           receipt: `rcpt_${Date.now()}`,
         }),
       });
@@ -362,7 +362,7 @@ export default function CheckoutPage() {
                       </p>
                     </div>
                     <span className="font-serif font-bold text-xs text-[#14213D]">
-                      ₹{(item.price * item.quantity).toLocaleString("en-IN")}
+                      AED {(item.price * item.quantity).toLocaleString()}
                     </span>
                   </div>
                 ))}
@@ -373,7 +373,7 @@ export default function CheckoutPage() {
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="font-serif font-bold text-[#14213D]">
-                    ₹{subtotal.toLocaleString("en-IN")}
+                    AED {subtotal.toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -393,7 +393,7 @@ export default function CheckoutPage() {
                     Total Payable
                   </span>
                   <span className="font-serif font-bold text-2xl text-[#14213D]">
-                    ₹{subtotal.toLocaleString("en-IN")}
+                    AED {subtotal.toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -407,20 +407,20 @@ export default function CheckoutPage() {
                 <span>
                   {isProcessing
                     ? "COMMUNICATING WITH GATEWAY..."
-                    : `AUTHORIZE ₹${subtotal.toLocaleString("en-IN")}`}
+                    : `AUTHORIZE AED ${subtotal.toLocaleString()}`}
                 </span>
               </button>
 
               <div className="pt-2 text-center text-[10px] text-[#14213D]/50 uppercase tracking-widest font-semibold flex items-center justify-center gap-2">
                 <ShieldCheck size={14} className="text-[#C5A059]" />
-                <span>AUTHORIZED NEXWORLD MAISON TRANSACTION</span>
+                <span>AUTHORIZED NEXENCE MAISON TRANSACTION</span>
               </div>
             </div>
           </div>
         </form>
       </div>
 
-      {/* Simulated Razorpay Test Authorization Modal */}
+      {/* Simulated Payment Test Authorization Modal */}
       {showMockPaymentModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-[#14213D]/80 backdrop-blur-md" />
@@ -432,10 +432,10 @@ export default function CheckoutPage() {
             </div>
 
             <span className="text-[10px] uppercase font-bold tracking-[0.25em] text-[#FF6B5B] block mb-1">
-              RAZORPAY INDIA SECURE CHECKOUT
+              NEXENCE SECURE CHECKOUT
             </span>
             <h3 className="font-serif text-xl font-bold text-[#14213D]">
-              Authorize Payment of ₹{subtotal.toLocaleString("en-IN")}
+              Authorize Payment of AED {subtotal.toLocaleString()}
             </h3>
             <p className="text-xs text-[#14213D]/65 mt-1 max-w-xs mx-auto">
               Test mode active. Click below to simulate instant successful payment clearance.
@@ -444,7 +444,7 @@ export default function CheckoutPage() {
             <div className="my-6 p-4 rounded-2xl bg-[#FAF7F2] border border-[#14213D]/10 text-left text-xs space-y-1.5 font-sans">
               <div className="flex justify-between">
                 <span className="text-[#14213D]/60">Merchant:</span>
-                <span className="font-bold text-[#14213D]">NexWorld Luxury Perfumes</span>
+                <span className="font-bold text-[#14213D]">Nexence Luxury Perfumes</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#14213D]/60">Client:</span>
@@ -452,7 +452,7 @@ export default function CheckoutPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-[#14213D]/60">Amount:</span>
-                <span className="font-bold text-[#14213D]">₹{subtotal.toLocaleString("en-IN")}</span>
+                <span className="font-bold text-[#14213D]">AED {subtotal.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#14213D]/60">Status:</span>

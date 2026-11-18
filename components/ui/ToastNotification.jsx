@@ -16,7 +16,7 @@ export default function ToastNotification() {
         {notification.item && (
           <div className="relative w-12 h-14 rounded-lg bg-white/10 p-1 shrink-0 flex items-center justify-center">
             <Image
-              src={notification.item.bottleImage || notification.item.image || "/images/zego.png"}
+              src={notification.item.bottleImage || notification.item.image || "/images/studio/zoya.jpg"}
               alt="Fragrance"
               fill
               className="object-contain"

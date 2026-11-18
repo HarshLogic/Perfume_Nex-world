@@ -55,7 +55,7 @@ export default function WishlistPage() {
               >
                 <div className="relative aspect-square w-full rounded-2xl bg-[#F4EDE0]/50 p-4 mb-4 flex items-center justify-center overflow-hidden">
                   <Image
-                    src={item.bottleImage || item.image || "/images/zego.png"}
+                    src={item.bottleImage || item.image || "/images/studio/zoya.jpg"}
                     alt={item.name}
                     fill
                     className="object-contain"
@@ -77,7 +77,7 @@ export default function WishlistPage() {
                     {item.name}
                   </h3>
                   <span className="font-serif font-bold text-base text-[#14213D] block my-2">
-                    ₹{Number(item.price).toLocaleString("en-IN")}
+                    AED {Number(item.price).toLocaleString()}
                   </span>
                 </div>
 

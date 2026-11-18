@@ -36,8 +36,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Collection", href: "/#collection" },
     { name: "Our Story", href: "/#story" },
-    { name: "Why NexWorld", href: "/#why-nexworld" },
-    { name: "Contact", href: "#footer" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -45,7 +44,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-[#F4EDE0]/90 backdrop-blur-md border-b border-[#14213D]/10 py-3.5 shadow-sm"
+            ? "bg-[#F4EDE0]/95 backdrop-blur-md border-b border-[#14213D]/10 py-3.5 shadow-sm"
             : "bg-transparent py-5"
         }`}
       >
@@ -57,19 +56,19 @@ export default function Navbar() {
                 variant="navy"
                 size="md"
                 showWordmark={true}
-                subtitle="PARFUMS"
+                subtitle="HAUTE PARFUMERIE"
               />
             </Link>
 
             {/* Center: Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-9">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`font-sans text-xs uppercase tracking-[0.22em] font-medium transition-colors duration-200 relative py-1 ${
+                    className={`font-sans text-xs uppercase tracking-[0.24em] font-medium transition-colors duration-200 relative py-1 ${
                       isActive
                         ? "text-[#FF6B5B] font-semibold"
                         : "text-[#14213D] hover:text-[#FF6B5B]"

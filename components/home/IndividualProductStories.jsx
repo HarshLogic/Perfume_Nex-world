@@ -4,17 +4,19 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShoppingBag, Plus, Minus, Check, Sparkles, Layers, Shield, Droplets } from "lucide-react";
+import { ShoppingBag, Plus, Minus, Check, Droplets } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export default function IndividualProductStories({ onQuickView }) {
   const { addToCart } = useCart();
 
-  // Quantities for each story section
   const [quantities, setQuantities] = useState({
-    zego: 1,
+    zoya: 1,
+    nexdesire: 1,
+    "oud-alashhar": 1,
     infinity: 1,
     "oud-alhind": 1,
+    nexaura: 1,
   });
 
   const handleQtyChange = (id, delta) => {
@@ -26,90 +28,177 @@ export default function IndividualProductStories({ onQuickView }) {
 
   const stories = [
     {
-      id: "zego",
-      name: "Zego",
-      brand: "NexWorld",
+      id: "zoya",
+      name: "Zoya",
+      brand: "NE / Nexence",
       subtitle: "Eau de Parfum",
-      price: 4999,
-      originalPrice: 6500,
-      size: "100ml / 3.4 FL. OZ.",
+      price: 139,
+      originalPrice: 169,
+      size: "100 ml / 3.4 fl. oz.",
       themeColor: "#F4D7DA",
       accentColor: "#FF6B5B",
       bgStyle: "bg-gradient-to-b from-[#FBF5F6] via-[#F6DEE2] to-[#F4EDE0]",
       badge: "The Pink Flacon",
       badgeColor: "bg-[#FF6B5B]/10 text-[#FF6B5B] border-[#FF6B5B]/20",
-      image: "/images/zego.png",
-      bottleCutout: "/images/zego-bottle.png",
-      tagline: "RADIANT SENSUALITY IN SCULPTED BLUSH GLASS",
+      image: "/images/studio/zoya.jpg",
+      bottleCutout: "/images/studio/zoya-bottle.png",
+      tagline: "TRANSPARENT PINK CRYSTAL & SCULPTURAL SPHERICAL CAP",
       description:
-        "NexWorld Zego is a celebration of modern grace. Bottled within an architectural soft pink flacon crowned by a rounded sculpted cap, its sillage weaves a trail of luminous romance and timeless confidence.",
+        "Zoya is an ode to radiant grace and modern charm. Featuring pure transparent pink glass crowned with an iconic spherical pink cap, its bottle and light cream/pink presentation box are embossed with the signature gold NE monogram.",
       notes: {
-        top: "[Editable Top Notes — e.g. Pink Pepper, Italian Bergamot, Lychee Nectar]",
-        heart: "[Editable Heart Notes — e.g. Centifolia Rose, Peony Petals, White Peach]",
-        base: "[Editable Base Notes — e.g. Madagascar Vanilla, Cashmere Musks, Blonde Amber]",
+        top: "[Editable Top Notes — e.g. Pink Pepper, Italian Mandarin, White Peach]",
+        heart: "[Editable Heart Notes — e.g. Centifolia Rose, Peony Petals, Delicate Jasmine]",
+        base: "[Editable Base Notes — e.g. Madagascar Vanilla, Cashmere Musks, White Amber]",
       },
       highlights: [
-        "Hand-sculpted rounded pink cap",
-        "8-12 hours velvety projection",
-        "Complimentary satin travel pouch",
+        "Transparent pink glass with spherical cap",
+        "Gold NE monogram & signature gold script",
+        "Light cream/pink presentation box with gold details",
+      ],
+    },
+    {
+      id: "nexdesire",
+      name: "Nexdesire",
+      brand: "NE",
+      subtitle: "Eau de Parfum",
+      price: 141,
+      originalPrice: 175,
+      size: "100 ml / 3.4 fl. oz.",
+      themeColor: "#E2D4F0",
+      accentColor: "#6B2D8A",
+      bgStyle: "bg-gradient-to-b from-[#F7F2FB] via-[#E2D4F0] to-[#F4EDE0]",
+      badge: "The Amethyst Flacon",
+      badgeColor: "bg-[#6B2D8A]/10 text-[#6B2D8A] border-[#6B2D8A]/20",
+      image: "/images/studio/nexdesire.jpg",
+      bottleCutout: "/images/studio/nexdesire-bottle.png",
+      tagline: "DEEP PURPLE GLASS & POLISHED METALLIC GOLD CAP",
+      description:
+        "An intoxicating aura of passion and mystery. Nexdesire is captured within deep amethyst purple glass adorned with a polished metallic gold cylindrical cap and matching purple luxury box with gleaming gold typography.",
+      notes: {
+        top: "[Editable Top Notes — e.g. Blackcurrant, Violet Leaves, Bergamot]",
+        heart: "[Editable Heart Notes — e.g. Midnight Orchid, Damask Plum, Iris Butter]",
+        base: "[Editable Base Notes — e.g. Amber Crystals, Tonka Bean, Smoked Vanilla]",
+      },
+      highlights: [
+        "Deep purple glass with metallic gold cylindrical cap",
+        "Embossed with authentic gold NE monogram",
+        "Matching purple luxury box with gold details",
+      ],
+    },
+    {
+      id: "oud-alashhar",
+      name: "Oud Al Ashhar",
+      brand: "NE",
+      subtitle: "Eau de Parfum",
+      price: 155,
+      originalPrice: 189,
+      size: "100 ml / 3.4 fl. oz.",
+      themeColor: "#E8DAC8",
+      accentColor: "#9E6B38",
+      bgStyle: "bg-gradient-to-b from-[#F9F5F0] via-[#E8DAC8] to-[#F4EDE0]",
+      badge: "The Amber Flacon",
+      badgeColor: "bg-[#9E6B38]/10 text-[#9E6B38] border-[#9E6B38]/20",
+      image: "/images/studio/oud-alashhar.jpg",
+      bottleCutout: "/images/studio/oud-alashhar-bottle.png",
+      tagline: "AMBER TRANSPARENT GLASS & GOLD NOBLE WOODS",
+      description:
+        "A distinguished testament to oriental heritage and warmth. Oud Al Ashhar glows in warm amber transparent glass crowned by a metallic gold cylindrical cap and dark brown/black box with gold Arabic typography.",
+      notes: {
+        top: "[Editable Top Notes — e.g. Golden Cardamom, Nutmeg, Saffron]",
+        heart: "[Editable Heart Notes — e.g. Aged Agarwood, Cedarwood Atlas, Labdanum]",
+        base: "[Editable Base Notes — e.g. Royal Ambergris, Leather Accord, Sandalwood]",
+      },
+      highlights: [
+        "Warm transparent amber glass with cylindrical gold cap",
+        "Embossed with authentic gold NE monogram",
+        "Dark brown/black box with gold typography (عود الأشهر)",
       ],
     },
     {
       id: "infinity",
       name: "NexWorld Infinity",
-      brand: "NexWorld",
+      brand: "NE",
       subtitle: "Eau de Parfum",
-      price: 5499,
-      originalPrice: 7200,
-      size: "100ml / 3.4 FL. OZ.",
+      price: 129,
+      originalPrice: 159,
+      size: "100 ml / 3.4 fl. oz.",
       themeColor: "#C7E6ED",
       accentColor: "#2A7B88",
-      bgStyle: "bg-gradient-to-b from-[#F1F8FA] via-[#D5ECF1] to-[#F4EDE0]",
-      badge: "The Turquoise Flacon",
+      bgStyle: "bg-gradient-to-b from-[#EFF8FA] via-[#C7E6ED] to-[#F4EDE0]",
+      badge: "Bestseller Flacon",
       badgeColor: "bg-[#2A7B88]/10 text-[#2A7B88] border-[#2A7B88]/20",
-      image: "/images/infinity.png",
-      bottleCutout: "/images/infinity-bottle.png",
-      tagline: "AN ENDLESS HORIZON OF MAGNETIC OCEAN DEPTH",
+      image: "/images/studio/infinity.jpg",
+      bottleCutout: "/images/studio/infinity-bottle.png",
+      tagline: "TRANSPARENT TURQUOISE GLASS & SILVER FLARED CAP",
       description:
-        "NexWorld Infinity captures the magnetic serenity of boundless blue oceans. Encased in a pristine turquoise rectangular flacon crowned with a monolithic silver chrome cap, it projects freshness infused with aristocratic cedar and ambergris.",
+        "An endless horizon of magnetic ocean freshness. NexWorld Infinity evokes boundless seas through crystalline turquoise glass adorned with a polished silver metallic flared cap and original bright blue box.",
       notes: {
-        top: "[Editable Top Notes — e.g. Sea Mineral Accord, Frosted Citrus, Clary Sage]",
-        heart: "[Editable Heart Notes — e.g. Blue Lavender, Blue Pine, Crushed Nutmeg]",
-        base: "[Editable Base Notes — e.g. Sun-bleached Driftwood, Mineral Ambergris, Vetiver]",
+        top: "[Editable Top Notes — e.g. Sea Salt, Frosted Bergamot, Crisp Marine Accord]",
+        heart: "[Editable Heart Notes — e.g. Blue Sage, Crushed Cedar Needle, Cardamom]",
+        base: "[Editable Base Notes — e.g. Driftwood, Mineral Ambergris, Smoked Vetiver]",
       },
       highlights: [
-        "Heavy crystal glass with chrome cap",
-        "10-14 hours intense aquatic sillage",
-        "Cold-pressed oceanic botanicals",
+        "Turquoise blue glass with silver metallic flared cap",
+        "Black NE monogram as printed on original flacon",
+        "Bright blue presentation box with dark typography",
       ],
     },
     {
       id: "oud-alhind",
       name: "Oud Alhind",
-      brand: "NexWorld",
-      subtitle: "Extrait de Parfum",
-      price: 6299,
-      originalPrice: 8500,
-      size: "100ml / 3.4 FL. OZ.",
+      brand: "NE",
+      subtitle: "Eau de Parfum",
+      price: 165,
+      originalPrice: 199,
+      size: "100 ml / 3.4 fl. oz.",
       themeColor: "#E8C2C8",
       accentColor: "#801B2A",
-      bgStyle: "bg-gradient-to-b from-[#FAF1F3] via-[#EBC7CD] to-[#F4EDE0]",
-      badge: "The Prestige Reserve",
+      bgStyle: "bg-gradient-to-b from-[#FAF0F2] via-[#E8C2C8] to-[#F4EDE0]",
+      badge: "Prestige Reserve",
       badgeColor: "bg-[#801B2A]/10 text-[#801B2A] border-[#801B2A]/20",
-      image: "/images/oud-alhind.png",
-      bottleCutout: "/images/oud-bottle.png",
-      tagline: "IMPERIAL DISTILLATION OF ANCIENT ASSAM OUD",
+      image: "/images/studio/oud-alhind.jpg",
+      bottleCutout: "/images/studio/oud-alhind-bottle.png",
+      tagline: "TRANSPARENT DEEP RED GLASS & TEXTURED GOLD CAP",
       description:
-        "Oud Alhind represents the pinnacle of oriental luxury. Wrapped in an opulent ruby-red rectangular flacon crowned by a 24K gold-plated cap, this extrait de parfum harmonizes rare Indian oud with golden saffron and warm resinous amber.",
+        "The sovereign majesty of pure Indian oud distilled into liquid ruby. Crowned with an ornate textured gold pyramid cap, Oud Alhind radiates timeless royal luxury alongside its rich burgundy box with gold typography.",
       notes: {
-        top: "[Editable Top Notes — e.g. Saffron Stigmas, Royal Incense, Taif Damascena]",
-        heart: "[Editable Heart Notes — e.g. Vintage Assam Agarwood, Leather Accord, Nutmeg]",
+        top: "[Editable Top Notes — e.g. Saffron Stigmas, Royal Incense, Taif Rose]",
+        heart: "[Editable Heart Notes — e.g. Vintage Assam Oud, Leather Accord, Nutmeg]",
         base: "[Editable Base Notes — e.g. Golden Amber, Sandalwood Mysore, Dark Patchouli]",
       },
       highlights: [
-        "High 30% Extrait de Parfum concentration",
-        "24K Gold-polished signature cap",
-        "Over 16 hours commanding presence",
+        "Deep transparent red glass with textured gold pyramid cap",
+        "Embossed with authentic gold NE monogram",
+        "Rich burgundy/red box with gold typography (عود الهند)",
+      ],
+    },
+    {
+      id: "nexaura",
+      name: "Nexaura",
+      brand: "NE",
+      subtitle: "Eau de Parfum",
+      price: 151,
+      originalPrice: 185,
+      size: "100 ml / 3.4 fl. oz.",
+      themeColor: "#CAD0DC",
+      accentColor: "#182848",
+      bgStyle: "bg-gradient-to-b from-[#F0F2F6] via-[#CAD0DC] to-[#F4EDE0]",
+      badge: "The Midnight Flacon",
+      badgeColor: "bg-[#182848]/10 text-[#182848] border-[#182848]/20",
+      image: "/images/studio/nexaura.jpg",
+      bottleCutout: "/images/studio/nexaura-bottle.png",
+      tagline: "DARK MIDNIGHT GLASS & TACTILE BLACK RIBBED CAP",
+      description:
+        "The magnetic power of the midnight hour. Nexaura is enveloped in dark midnight glass with a tactile ribbed black cap and gleaming gold NE crest, exuding commanding authority and modern sophistication.",
+      notes: {
+        top: "[Editable Top Notes — e.g. Smoked Citrus, Black Pepper, Italian Cypress]",
+        heart: "[Editable Heart Notes — e.g. Midnight Cedar, Dark Rum Accord, Incense]",
+        base: "[Editable Base Notes — e.g. Dark Vetiver, Indonesian Patchouli, Black Amber]",
+      },
+      highlights: [
+        "Dark black/navy glass with black ribbed cylindrical cap",
+        "Embossed with authentic gold NE monogram",
+        "Dark navy luxury box with gold typography",
       ],
     },
   ];
@@ -148,19 +237,18 @@ export default function IndividualProductStories({ onQuickView }) {
                     !isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="relative group w-full max-w-md aspect-square rounded-3xl overflow-hidden bg-white/50 backdrop-blur-md p-6 border border-[#14213D]/10 shadow-2xl">
+                  <div className="relative group w-full max-w-lg aspect-square rounded-3xl overflow-hidden bg-[#14213D]/5 border border-[#14213D]/10 shadow-2xl flex items-center justify-center">
                     <div className="relative w-full h-full flex items-center justify-center">
                       <Image
                         src={product.image}
-                        alt={`${product.name} Luxury Fragrance`}
+                        alt={`${product.name} Authentic Bottle & Packaging`}
                         fill
-                        className="object-contain transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
 
-                    {/* Subtle Corner Badge */}
                     <div className="absolute top-5 left-5">
-                      <span className="font-serif text-[10px] uppercase tracking-[0.25em] font-bold text-[#14213D]/60 bg-white/80 px-3 py-1 rounded-full shadow-sm">
+                      <span className="font-serif text-[10px] uppercase tracking-[0.25em] font-bold text-[#14213D]/70 bg-white/90 px-3 py-1 rounded-full shadow-sm">
                         {product.size}
                       </span>
                     </div>
@@ -176,7 +264,7 @@ export default function IndividualProductStories({ onQuickView }) {
                   </div>
                 </motion.div>
 
-                {/* Editorial Storytelling & Buying Options Column */}
+                {/* Editorial Storytelling & Purchasing Column */}
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +301,7 @@ export default function IndividualProductStories({ onQuickView }) {
                     {product.description}
                   </p>
 
-                  {/* Fragrance Notes Cards (Editable Fields per Master Prompt) */}
+                  {/* Fragrance Notes Cards (Editable Fields Preserved) */}
                   <div className="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-[#14213D]/10 space-y-3">
                     <div className="flex items-center justify-between">
                       <h4 className="font-serif text-xs uppercase tracking-[0.22em] font-bold text-[#14213D] flex items-center gap-1.5">
@@ -267,24 +355,21 @@ export default function IndividualProductStories({ onQuickView }) {
 
                   {/* Pricing, Quantity & Add to Cart Controls */}
                   <div className="pt-4 border-t border-[#14213D]/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5">
-                    {/* Price Block */}
                     <div>
                       <div className="flex items-baseline gap-2">
                         <span className="font-serif text-2xl sm:text-3xl font-bold text-[#14213D]">
-                          ₹{product.price.toLocaleString("en-IN")}
+                          AED {product.price.toLocaleString()}
                         </span>
                         <span className="text-sm text-[#14213D]/40 line-through">
-                          ₹{product.originalPrice.toLocaleString("en-IN")}
+                          AED {product.originalPrice.toLocaleString()}
                         </span>
                       </div>
                       <span className="text-[10px] uppercase tracking-wider text-[#14213D]/50 font-medium block">
-                        Complimentary Domestic Delivery Included
+                        Volume: 100 ml / 3.4 fl. oz.
                       </span>
                     </div>
 
-                    {/* Quantity Stepper & Add to Bag */}
                     <div className="flex items-center gap-3">
-                      {/* Stepper */}
                       <div className="flex items-center border border-[#14213D]/20 rounded-full bg-white/80 p-1">
                         <button
                           onClick={() => handleQtyChange(product.id, -1)}
@@ -305,7 +390,6 @@ export default function IndividualProductStories({ onQuickView }) {
                         </button>
                       </div>
 
-                      {/* Add to Bag CTA */}
                       <button
                         onClick={() => addToCart(product, currentQty)}
                         className="btn-luxury-coral px-6 py-3.5 rounded-full font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all"

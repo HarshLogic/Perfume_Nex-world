@@ -15,7 +15,7 @@ app.prepare()
     server.get("/api/health", (req, res) => {
       res.json({
         status: "ok",
-        maison: "NEXWORLD PARFUMS",
+        maison: "NEXENCE PARFUMS",
         mode: dev ? "development" : "production",
         time: new Date().toISOString(),
       });
@@ -29,7 +29,7 @@ app.prepare()
     function startListening(portToTry) {
       const listener = server.listen(portToTry, "0.0.0.0", () => {
         console.log(`\n==================================================`);
-        console.log(`  ✨ NEXWORLD LUXURY PARFUMS SERVER ONLINE`);
+        console.log(`  ✨ NEXENCE LUXURY PARFUMS SERVER ONLINE`);
         console.log(`  🌐 Boutique: http://localhost:${portToTry}`);
         console.log(`  🛡️ Admin:    http://localhost:${portToTry}/admin`);
         console.log(`  📦 Mode:     ${dev ? "Development" : "Production"}`);
